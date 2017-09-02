@@ -1,4 +1,6 @@
-#coding: UTF-8
+#!/usr/bin/env python3
+#coding=utf-8
+
 import re
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
@@ -43,6 +45,7 @@ def hello_send(message):
 @respond_to('hello_decorators')
 def hello_decorators(message):
     message.send('hello!')
+
 
 @listen_to('hey!')
 def hey(message):
