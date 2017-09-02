@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+
+
 import sys
 import re
 import logging
@@ -31,38 +33,14 @@ def main():
 def random_fuckoff(message):
     man = ['Evan', 'Matt']
     beast = ['Shardik', 'Linus']
-    both = man + beast
+    #  both = man + beast
 
     message.reply(fuck.random(name=random.choice(man), from_=random.choice(beast)).text)
-
-
-@respond_to('hiya', re.IGNORECASE)
-def hiya(message):
-    message.reply('I can understand hiya or HIYA!')
-    # react with thumb up emoji
-    message.react('+1')
-
-
-@respond_to('I love you')
-def love(message):
-    message.reply('I love you too!')
 
 
 @listen_to('Fuck off')
 def fuck_off(message):
     message.reply('No, you fuck off!!!')
-
-
-@listen_to('Can someone help me?')
-def help(message):
-    # Message is replied to the sender (prefixed with @user)
-    message.reply('Yes, I can!')
-
-    # Message is sent on the channel
-    message.send('I can help everybody!')
-
-    # Start a thread on the original message
-    message.reply("Here's a threaded reply", in_thread=True)
 
 
 if __name__ == '__main__':
