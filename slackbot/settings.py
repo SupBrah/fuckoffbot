@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+from token import API_TOKEN
 
 DEBUG = False
 
@@ -10,7 +11,7 @@ PLUGINS = [
 
 ERRORS_TO = None
 
-# API_TOKEN = '###token###'
+
 
 '''
 Setup a comma delimited list of aliases that the bot will respond to.
