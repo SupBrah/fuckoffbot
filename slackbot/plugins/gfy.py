@@ -13,38 +13,25 @@ from foaas import Fuck
 
 fuck = Fuck(secure=True)
 
-
-#  def main():
-#      kwargs = {
-#          'format': '[%(asctime)s] %(message)s',
-#          'datefmt': '%m/%d/%Y %H:%M:%S',
-#          'level': logging.DEBUG if settings.DEBUG else logging.INFO,
-#          'stream': sys.stdout,
-#      }
-#      logging.basicConfig(**kwargs)
-#      logging.getLogger('requests.packages.urllib3.connectionpool').setLevel(logging.WARNING)
-#      bot = Bot()
-#      bot.run()
-
 MAN = ['Evan', 'Matt']
 BEAST = ['Shardik', 'Linus']
 
 
+@listen_to('^fuck off$', re.IGNORECASE)
+def fuck_off(message):
+    """You don't get to tell me to fuck off!"""
+    message.reply('No, you fuck off!!!')
+
+
 @respond_to('random', re.IGNORECASE)
 def random_fuckoff(message):
-    message.reply(fuck.random(name=random.choice(MAN), from_=random.choice(BEAST)).text)
+    """Respond to 'random' with a fuck.random element."""
+    message.reply(fuck.random(name=random.choice(MAN),
+                              from_=random.choice(BEAST)).text)
 
 
 @respond_to('yoda', re.IGNORECASE)
 def yoda(message):
+    """Respond to 'yoda' with a fuck.yoda element."""
     message.reply(fuck.yoda(name=random.choice(MAN),
                             from_=random.choice(BEAST)))
-
-
-@listen_to('^Fuck off$')
-def fuck_off(message):
-    message.reply('No, you fuck off!!!')
-
-
-#  if __name__ == '__main__':
-#      main()
