@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-
-
 import sys
 import re
 import logging
@@ -16,32 +14,37 @@ from foaas import Fuck
 fuck = Fuck(secure=True)
 
 
-def main():
-    kwargs = {
-        'format': '[%(asctime)s] %(message)s',
-        'datefmt': '%m/%d/%Y %H:%M:%S',
-        'level': logging.DEBUG if settings.DEBUG else logging.INFO,
-        'stream': sys.stdout,
-    }
-    logging.basicConfig(**kwargs)
-    logging.getLogger('requests.packages.urllib3.connectionpool').setLevel(logging.WARNING)
-    bot = Bot()
-    bot.run()
+#  def main():
+#      kwargs = {
+#          'format': '[%(asctime)s] %(message)s',
+#          'datefmt': '%m/%d/%Y %H:%M:%S',
+#          'level': logging.DEBUG if settings.DEBUG else logging.INFO,
+#          'stream': sys.stdout,
+#      }
+#      logging.basicConfig(**kwargs)
+#      logging.getLogger('requests.packages.urllib3.connectionpool').setLevel(logging.WARNING)
+#      bot = Bot()
+#      bot.run()
+
+MAN = ['Evan', 'Matt']
+BEAST = ['Shardik', 'Linus']
 
 
 @respond_to('random', re.IGNORECASE)
 def random_fuckoff(message):
-    man = ['Evan', 'Matt']
-    beast = ['Shardik', 'Linus']
-    #  both = man + beast
-
-    message.reply(fuck.random(name=random.choice(man), from_=random.choice(beast)).text)
+    message.reply(fuck.random(name=random.choice(MAN), from_=random.choice(BEAST)).text)
 
 
-@listen_to('Fuck off')
+@respond_to('yoda', re.IGNORECASE)
+def yoda(message):
+    message.reply(fuck.yoda(name=random.choice(MAN),
+                            from_=random.choice(BEAST)))
+
+
+@listen_to('^Fuck off$')
 def fuck_off(message):
     message.reply('No, you fuck off!!!')
 
 
-if __name__ == '__main__':
-    main()
+#  if __name__ == '__main__':
+#      main()
