@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from token import API_TOKEN
+from api_token import API_TOKEN
 
 DEBUG = False
 
