@@ -12,7 +12,6 @@ PLUGINS = [
 ERRORS_TO = None
 
 
-
 '''
 Setup a comma delimited list of aliases that the bot will respond to.
 
@@ -21,7 +20,7 @@ Example: if you set ALIASES='!,$' then a bot which would respond to:
 will now also respond to
 '$ hello'
 '''
-ALIASES = ''
+ALIASES = 'fob'
 
 '''
 If you use Slack Web API to send messages (with
