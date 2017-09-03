@@ -43,11 +43,6 @@ def hiya(message):
     message.react('+1')
 
 
-@respond_to('I love you')
-def love(message):
-    message.reply('I love you too!')
-
-
 @listen_to('Fuck off')
 def fuck_off(message):
     message.reply('No, you fuck off!!!')
