@@ -9,9 +9,6 @@ from slackbot import settings
 from slackbot.bot import Bot
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
-from foaas import Fuck
-
-fuck = Fuck(secure=True)
 
 
 def main():
@@ -27,29 +24,23 @@ def main():
     bot.run()
 
 
-@respond_to('random', re.IGNORECASE)
-def random_fuckoff(message):
-    man = ['Evan', 'Matt']
-    beast = ['Shardik', 'Linus']
-    both = man + beast
-
-    message.reply(fuck.random(name=random.choice(man), from_=random.choice(beast)).text)
-
-
 @respond_to('hiya', re.IGNORECASE)
 def hiya(message):
+    """Say hiya back."""
     message.reply('I can understand hiya or HIYA!')
     # react with thumb up emoji
     message.react('+1')
 
 
-@listen_to('Fuck off')
-def fuck_off(message):
-    message.reply('No, you fuck off!!!')
+#  @listen_to('fuck off', re.IGNORECASE)
+#  def fuck_off(message):
+#      """I will not be the one who fucks off."""
+#      message.reply('No, you fuck off!!!')
 
 
 @listen_to('Can someone help me?')
 def help(message):
+    """Respond with some (for now) unhelpful help."""
     # Message is replied to the sender (prefixed with @user)
     message.reply('Yes, I can!')
 
