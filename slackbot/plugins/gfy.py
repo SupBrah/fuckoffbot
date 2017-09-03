@@ -34,4 +34,4 @@ def random_fuckoff(message):
 def yoda(message):
     """Respond to 'yoda' with a fuck.yoda element."""
     message.reply(fuck.yoda(name=random.choice(MAN),
-                            from_=random.choice(BEAST)))
+                            from_=random.choice(BEAST)).text)
