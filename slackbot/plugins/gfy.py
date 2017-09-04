@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import re
 import logging
 import logging.config
 import random
+from random import choice as randchoice
 from slackbot import settings
 from slackbot.bot import Bot
 from slackbot.bot import respond_to
@@ -19,6 +20,10 @@ BOTH = MAN + BEAST
 
 name = random.choice(BOTH)
 from_ = random.choice(BOTH)
+
+
+def choose_random():
+    return randchoice(BOTH)
 
 
 @listen_to('^fuck off$', re.IGNORECASE)
@@ -41,6 +46,15 @@ def yoda(message):
                             from_=random.choice(BOTH)).text)
 
 
+@respond_to('you', re.IGNORECASE)
+def you(message):
+    """you docstring"""
+    name = choose_random()
+    from_ = choose_random()
+    #  message.reply(fuck.you(name=name))
+    print(fuck.you(name=name, from_=from_).text)
+
+
 @respond_to('possibles', re.IGNORECASE)
 def possibles(message):
     #  poss = ['awesome(from_)', 'ballmer(name=random.choice(BOTH)=, company, from_)',]# 'because(from_)', 'bus(name, from_)', 'bye(from_)', 'caniuse(namer, from_)', 'chainsaw(name, from_)', 'cool(from_)', 'diabetes(from_)', 'donut(name, from_)', 'everyone(from_)', 'everything(from_)', 'fascinating(from_)', 'field(name, from_, reference)', 'flying(from_)', 'king(name, from_)', 'life(from_)', 'linus(name, from_)', 'madison(name, from_)', 'nugget(name, from_)', 'off(name, from_)', 'outside(name, from_)', 'pink(from_)', 'thanks(from_)', 'that(from_)', 'thing(thing, from_)', 'this(from_)', 'random(name, from_)', 'shakespeare(name, from_)', 'what(from_)', 'xmas(name, from_)', 'yoda(name, from_)', 'you(name, from_)', ]
@@ -50,13 +64,16 @@ def possibles(message):
     for elem in poss:
         #  print(elem.split()[0])
         fuck_name = elem.split('(')[0]
-        fuck_param = elem.split('(')[1] + '(BOTH)'
-        #  for elem in elem.split():
-        #      print('elem: ' + elem)
-        #  print(fick)
+        fuck_param = elem.split('(')[1].strip(fuck_name)
+        fuck_param_list = elem.split(',')
+        for param in fuck_param_list:
+            print('param: {}'.format(param))
+
         print('''@respond_to('{}', re.IGNORECASE)
 def {}(message):
     """{} docstring"""
+    name = chose_random()
+    from_=chose_random()
     message.reply(fuck.{}({}))
 
 '''.format(fuck_name, fuck_name, fuck_name, fuck_name, fuck_param))
