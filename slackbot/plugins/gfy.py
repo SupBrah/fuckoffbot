@@ -66,14 +66,14 @@ def possibles(message):
         fuck_name = elem.split('(')[0]
         fuck_param = elem.split('(')[1].strip(fuck_name)
         fuck_param_list = elem.split(',')
-        for param in fuck_param_list:
-            print('param: {}'.format(param))
+        #  for param in fuck_param_list:
+            #  print('param: {}'.format(param))
 
         print('''@respond_to('{}', re.IGNORECASE)
 def {}(message):
     """{} docstring"""
-    name = chose_random()
-    from_=chose_random()
+    #  name = chose_random()
+    #  from_ = chose_random()
     message.reply(fuck.{}({}(BOTH)))
 
 '''.format(fuck_name, fuck_name, fuck_name, fuck_name, fuck_param))
