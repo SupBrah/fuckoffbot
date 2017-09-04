@@ -74,7 +74,7 @@ def {}(message):
     """{} docstring"""
     name = chose_random()
     from_=chose_random()
-    message.reply(fuck.{}({}))
+    message.reply(fuck.{}({}(BOTH)))
 
 '''.format(fuck_name, fuck_name, fuck_name, fuck_name, fuck_param))
 
