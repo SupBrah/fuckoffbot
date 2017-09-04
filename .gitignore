@@ -19,3 +19,4 @@ slackbot_test_settings.py
 /.vscode/
 *token*
 pip-selfcheck.json
+*.py.bak
