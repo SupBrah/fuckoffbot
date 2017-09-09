@@ -22,5 +22,7 @@ pip-selfcheck.json
 lib64
 share/
 *.py.bak
+
+# don't track keys
 repo-key
 repo-key.pub
