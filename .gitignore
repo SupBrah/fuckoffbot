@@ -26,3 +26,4 @@ share/
 # don't track keys
 repo-key
 repo-key.pub
+run.log
